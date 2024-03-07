@@ -1,4 +1,4 @@
-# `zero-one-healthy-check`
+# `healthy-check`
 
 系统相关概念参考：
 
@@ -7,7 +7,7 @@
 
 ## 项目简介
 
-`zero-one-healthy-check`是一套高度定制的开源健康体检管理系统，为互联网企业度身打造。它不仅适用于各类体检场景，还能满足职业体检和从业人员的健康评估需求。此系统专为个体体检中心精心打造，能够与医院的各种设备、`LIS、PACS、HIS`等系统完美对接，轻松实现数据录入和生成精准详尽的体检报告。
+`healthy-check`是一套高度定制的开源健康体检管理系统，为互联网企业度身打造。它不仅适用于各类体检场景，还能满足职业体检和从业人员的健康评估需求。此系统专为个体体检中心精心打造，能够与医院的各种设备、`LIS、PACS、HIS`等系统完美对接，轻松实现数据录入和生成精准详尽的体检报告。
 
 涵盖了丰富的业务页面功能，包括但不限于：基础数据（科室管理、体检项目、体检套餐等）、系统管理（用户、角色、菜单、数据字典等）、体检单位与订单管理、体检人员记录、体检审核与登记、台账记录与分诊台管理、医生问诊及总检、报告打印、单位报告和数据网报、`LIS`管理、`PACS`管理等。这些功能丰富而全面，为健康体检管理提供了多维度的支持和便捷操作。
 
@@ -33,84 +33,6 @@
 > > `healthy-frontend` -- 前端项目主体
 
 ## 软件架构
-
-### `Java`技术栈
-
-#### 后端核心技术栈
-
-版本匹配参考：
-
-https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E
-
-| 技术                     | 说明                   | 版本          | 备注                                                         |
-| ------------------------ | ---------------------- | ------------- | ------------------------------------------------------------ |
-| `Spring`                 | 容器                   | 5.2.15        | https://spring.io/                                           |
-| `Spring Web MVC`         | `MVC`框架              | 5.2.15        | https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html |
-| `Beanvalidation`         | 实体属性校验           | 2.0.2         | https://beanvalidation.org/2.0-jsr380/<br>https://www.baeldung.com/spring-boot-bean-validation |
-| `MyBatis`                | `ORM`框架              | 3.5.7         | http://www.mybatis.org/mybatis-3/zh/index.html               |
-| `MyBatis Plus`           | `MyBatis`的增强工具    | 3.4.3.4       | https://baomidou.com/                                        |
-| `MyBatis Plus Generator` | 代码生成器             | 3.5.1         | https://github.com/baomidou/generator                        |
-| `Druid`                  | 数据库连接池           | 1.2.8         | https://github.com/alibaba/druid                             |
-| `Lombok`                 | 实体类增加工具         | 1.18.20       | https://github.com/rzwitserloot/lombok                       |
-| `Hutool`                 | Java工具类库           | 5.8.3         | https://hutool.cn/docs/#/                                    |
-| `Knife4j`                | 接口描述语言           | 2.0.8         | https://gitee.com/xiaoym/knife4j                             |
-| `Nimbus JOSE JWT`        | `JSON Web Token`       | 8.21          | https://bitbucket.org/connect2id/nimbus-jose-jwt/wiki/Home   |
-| `Spring Boot`            | Spring快速集成脚手架   | 2.3.12        | https://spring.io/projects/spring-boot                       |
-| `Spring Cloud`           | 微服务框架             | `Hoxton.SR12` | https://spring.io/projects/spring-cloud                      |
-| `Spring Cloud Alibaba`   | 微服务框架             | 2.2.8         | https://github.com/alibaba/spring-cloud-alibaba/wiki         |
-| `Spring Cloud Security`  | 认证和授权框架         | 2.2.5         | https://spring.io/projects/spring-cloud-security             |
-| `Sentinel`               | 分布式系统的流量防卫兵 | 1.8.4         | https://sentinelguard.io/zh-cn/                              |
-| `Seata`                  | 分布式事务解决方案     | 1.5.1         | https://seata.io/zh-cn/                                      |
-| `MapStruct`              | 实体类映射代码生成器   | `1.5.3.Final` | https://mapstruct.org/                                       |
-
-#### 后端扩展技术栈
-
-版本匹配参考：
-
-https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/#preface.requirements
-
-https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#requirements
-
-| 技术                       | 说明                   | 版本   | 备注                                                         |
-| -------------------------- | ---------------------- | ------ | ------------------------------------------------------------ |
-| `EasyExcel`                | Excel报表              | 3.0.5  | https://github.com/alibaba/easyexcel                         |
-| `RocketMQ`                 | 消息队列中间件         | 4.9.3  | https://github.com/alibaba/spring-cloud-alibaba/wiki/RocketMQ |
-| `WebSocket`                | 及时通讯服务           | 5.2.15 | https://docs.spring.io/spring-framework/docs/5.3.15/reference/html/web.html#websocket |
-| `FastDFS`                  | `dfs`客户端            | 2.0.1  | https://gitee.com/zero-awei/fastdfs-spring-boot-starter      |
-| `Elasticsearch`            | 分布式搜索和分析引擎   | 7.6.2  | https://www.elastic.co/guide/en/elasticsearch/reference/7.6/index.html |
-| `LogStash`                 | 日志收集工具           | 7.6.2  | https://www.elastic.co/guide/en/logstash/7.6/index.html      |
-| `Kibana`                   | 日志可视化查看工具     | 7.6.2  | https://www.elastic.co/guide/en/kibana/7.6/index.html        |
-| `logstash-logback-encoder` | `Logstash`日志收集插件 | 6.6    | https://github.com/logfellow/logstash-logback-encoder/tree/logstash-logback-encoder-6.6 |
-| `spring-boot-admin`        | 服务管理和监控面板     | 2.3.1  | https://github.com/codecentric/spring-boot-admin             |
-| `EasyEs`                   | `ES ORM`开发框架       | 1.0.3  | https://www.easy-es.cn/                                      |
-| `spring-data-mongodb`      | `Spring`集成`MongoDB`  | 3.0.9  | https://docs.spring.io/spring-data/mongodb/docs/3.0.9.RELEASE/reference/html/#preface |
-| `AJ-Captcha`               | 验证码插件             | 1.3.0  | https://ajcaptcha.beliefteam.cn/captcha-doc/                 |
-| `x-easypdf`                | `pdf`插件              | 2.12.2 | https://gitee.com/dromara/x-easypdf                          |
-
-### 前端技术栈
-
-#### 核心技术栈
-
-| 技术           | 说明             | 版本                                                         | 备注                                 |
-| -------------- | ---------------- | ------------------------------------------------------------ | ------------------------------------ |
-| `Vue`          | 前端框架         | `v3.x`                                                       | https://v3.vuejs.org/                |
-| `Vue-Router`   | 路由框架         | `v4.x`                                                       | https://next.router.vuejs.org/       |
-| `Pinia`        | 全局状态管理框架 | `v2.x`                                                       | https://pinia.vuejs.org/             |
-| `Axios`        | HTTP中间件       | [`v0.27.2`](https://github.com/axios/axios/releases/tag/v0.27.2) | https://github.com/axios/axios       |
-| `Element-Plus` | 前端`UI`框架     | `latest`                                                     | https://element-plus.gitee.io/zh-CN/ |
-
-#### 扩展技术栈
-
-| 技术                 | 说明                    | 版本     | 备注                                                         |
-| -------------------- | ----------------------- | -------- | ------------------------------------------------------------ |
-| `Avue`               | 基于`ElementUI`二次封装 | `v3.1.4` | https://v3.avuejs.com/                                       |
-| `V-Charts`           | 基于`Echarts`的图表框架 | latest   | https://v-charts.js.org/                                     |
-| `AJ-Captcha`         | 验证码插件              | 1.3.0    | https://ajcaptcha.beliefteam.cn/captcha-doc/                 |
-| `SheetJS`            | 电子表格插件            | 0.19.2   | https://docs.sheetjs.com/docs/<br>https://docs.sheetjs.com/docs/demos/frontend/vue |
-| `vue-plugin-hiprint` | 打印插件                | 0.0.48   | https://gitee.com/CcSimple/vue-plugin-hiprint                |
-| `wangEditor`         | 富文本编辑器            | v5       | https://www.wangeditor.com/v5/                               |
-| `pdfobject`          | `pdf`预览插件           | 2.2.12   | https://github.com/pipwerks/PDFObject                        |
-| 高德地图             | 查询行政区域            | latest   | https://developer.amap.com/api/webservice/guide/api/district |
 
 ### `CPP`技术栈
 
