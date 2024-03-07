@@ -26,8 +26,6 @@
 > >
 > > `documents` -- 环境搭建、编码规范、项目需求等等文档资源
 > >
-> > `healthy-java` -- `Java`项目主体
-> >
 > > `healthy-cpp` -- `C++`项目主体
 > >
 > > `healthy-frontend` -- 前端项目主体
